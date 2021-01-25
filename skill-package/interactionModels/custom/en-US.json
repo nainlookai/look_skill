@@ -1,0 +1,192 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "look demo",
+      "modelConfiguration": {
+        "fallbackIntentSensitivity": {
+          "level": "LOW"
+        }
+      },
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StartOverIntent",
+          "samples": []
+        },
+        {
+          "name": "GetNewFactIntent",
+          "slots": [],
+          "samples": [
+            "Give me a fact",
+            "tell me a fact"
+          ]
+        },
+        {
+          "name": "LookDataHandler",
+          "slots": [
+            {
+              "name": "Emergency",
+              "type": "featureWordType",
+              "samples": [
+                "I'm in an {Emergency} ",
+                "{Emergency} ",
+                "I'm going from {Emergency} to {Papers} "
+              ]
+            },
+            {
+              "name": "Papers",
+              "type": "featureWordType",
+              "samples": [
+                "Can you check my {Papers} ",
+                "{Papers} "
+              ]
+            }
+          ],
+          "samples": [
+            "can you check my {Papers}",
+            "my car has met with an accident. please help me for this {Emergency}",
+            "i am in an {Emergency} please tell me where is the nearest honda station "
+          ]
+        }
+      ],
+      "types": [
+        {
+          "name": "featureWordType",
+          "values": [
+            {
+              "name": {
+                "value": "Emergency"
+              }
+            },
+            {
+              "name": {
+                "value": "Papers"
+              }
+            },
+            {
+              "name": {
+                "value": "Shopping"
+              }
+            },
+            {
+              "name": {
+                "value": "Self"
+              }
+            },
+            {
+              "name": {
+                "value": "Accessories"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "LookDataHandler",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "Emergency",
+              "type": "featureWordType",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Intent-LookDataHandler.IntentSlot-Emergency"
+              },
+              "validations": [
+                {
+                  "type": "isNotInSet",
+                  "prompt": "Slot.Validation.596358663326.282490667310.1526107495625",
+                  "values": [
+                    "emergency need car services",
+                    "emergency",
+                    "car services"
+                  ]
+                },
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.596358663326.282490667310.1366622834897"
+                }
+              ]
+            },
+            {
+              "name": "Papers",
+              "type": "featureWordType",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Intent-LookDataHandler.IntentSlot-Papers"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Intent-LookDataHandler.IntentSlot-Emergency",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Checking your documents folder. Your documents are alright."
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Intent-LookDataHandler.IntentSlot-Papers",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Let me check your documents. I'll be back in a while."
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.596358663326.282490667310.1526107495625",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Checking your documents folder."
+          },
+          {
+            "type": "PlainText",
+            "value": "I am searching for the best assistance that I can get you. Please wait for a while."
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.596358663326.282490667310.1366622834897",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "{Emergency} vehicles are busy. Please wait for a while. "
+          },
+          {
+            "type": "PlainText",
+            "value": "I don't recognize {Emergency} as a service. Please tell me another service."
+          }
+        ]
+      }
+    ]
+  }
+}

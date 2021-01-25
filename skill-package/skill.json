@@ -1,0 +1,50 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Look - Voice based skills platform is an all in one marketplace and skill creation platform for Alexa & all the voice based assistants.",
+          "examplePhrases": [
+            "Alexa Open Look Demo",
+            "Alexa Open Look Platform"
+          ],
+          "keywords": [
+            "look",
+            "honda",
+            "car platform",
+            "voice platform"
+          ],
+          "name": "Look Demo",
+          "description": "Look - Voice based skills platform is an all in one marketplace and skill creation platform for Alexa & all the voice based assistants.",
+          "smallIconUri": "https://nturing.com/assets/img/nturing-logo-transparent-108.png",
+          "largeIconUri": "https://nturing.com/assets/img/nturing-logo-transparent-512.png"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "No special instructions.",
+      "category": "EDUCATION_AND_REFERENCE",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:921381341462:function:ask-templatelooktest-default-default-1608652992017"
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "locales": {
+        "en-US": {
+          "termsOfUseUrl": "https://nturing.com/#/termsandconditions",
+          "privacyPolicyUrl": "https://nturing.com/#/privacy-policy"
+        }
+      },
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}
