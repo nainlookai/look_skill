@@ -70,7 +70,9 @@ const LaunchRequestHandler = {
       ]
     };
 
-    const speechText = "Welcome to Look's Connected Car Platform. I can assist you during an emergency, renew your car papers, connect with your accessories, shop the store on the go, and even park your car for you.";
+    const speechText = "Welcome to Look Platform. Look is a skill marketplace where you can add voice interfaces to your business.";
+    // const speechText = "Welcome to Look's Connected Car Platform. I can assist you during an emergency, renew your car papers, connect with your accessories, shop the store on the go, and even park your car for you.";
+
     return handlerInput.responseBuilder
       .addDirective(featureWordEntities)
       .speak(speechText)
